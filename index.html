@@ -4,59 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nhan Ngoc Thach - Portfolio</title>
-  <link rel="stylesheet" href="./style/style.css" />
-  <script src="./scripts/script.js"></script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Custom -->
+  <link rel="stylesheet" href="style/style.css" />
+  <script defer src="scripts/script.js"></script>
 </head>
-<body>
+<body class="light-mode">
 
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <img src="./images/avatar.jpg" alt="Avatar" class="avatar" />
-      <h2>Nhan Ngoc Thach</h2>
-      <p>MSBA Student @ Suffolk University</p>
-      <p><i class="fas fa-map-marker-alt"></i> Boston, MA</p>
-
-      <div class="sidebar-icons">
-        <a href="mailto:0n7n0t8@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/thach.nhanngoc" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://github.com/NhanNgocThach" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/ngoc-thach-nhan-8456a2349/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <div class="main-wrapper d-flex">
+    <!-- SIDEBAR -->
+    <aside class="sidebar text-center" id="sidebar">
+      <div class="profile-section">
+        <img src="./images/avatar.jpg" alt="Avatar" class="avatar mb-3" />
+        <h2 class="username" data-lang="name">Nhan Ngoc Thach</h2>
+        <p class="user-title" data-lang="title">MSBA Student @ Suffolk University</p>
       </div>
-      
+
+      <nav class="nav flex-column nav-menu">
+        <a class="nav-link" href="#" onclick="loadTab('about')" data-lang="about"><i class="fas fa-user"></i> <span>About</span></a>
+        <a class="nav-link" href="#" onclick="loadTab('class')" data-lang="class"><i class="fas fa-graduation-cap"></i> <span>Class</span></a>
+        <a class="nav-link" href="#" onclick="loadTab('contact')" data-lang="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a>
+      </nav>
+
+      <div class="sidebar-footer mt-auto">
+        <div class="social-icons mb-2">
+          <a href="mailto:0n7n0t8@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://facebook.com/thach.nhanngoc" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://github.com/NhanNgocThach" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/ngoc-thach-nhan-8456a2349/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="language-toggle mb-2">
+          <button onclick="changeLanguage('en')">🇬🇧</button>
+          <button onclick="changeLanguage('vi')">🇻🇳</button>
+        </div>
+
+        <button id="modeToggle" class="btn btn-outline-light btn-sm" onclick="toggleMode()">
+          <i id="modeIcon" class="fas fa-sun"></i>
+        </button>
+      </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="content">
-      <!-- Navigation Bar -->
-      <header>
-        <nav>
-          <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#class">Class</a></li>
-            <li><a href="#contact">Contact</a></li> <!-- Optional: remove this if no contact section -->
-          </ul>
-        </nav>
-      </header>
-
-      <!-- About Me Section -->
-      <section id="about">
-        <h1>Nhan Ngoc Thach</h1>
-        <p>I’m a Business Analytics student with interests in Python, SQL, and Cybersecurity.</p>
-      </section>
-
-      <!-- Class / Projects Section -->
-      <section id="class">
-        <h2>Class / Projects</h2>
-        <ul>
-          <li>Project 1 - Python</li>
-          <li>Project 2 - SQL</li>
-          <li>Project 3 - Cybersecurity</li>
-        </ul>
-      </section>
-
-      
+    <!-- MAIN CONTENT -->
+    <main class="main-content flex-grow-1 p-4">
+      <div id="main-content">
+        <h1 class="text-center" data-lang="welcome">Welcome 👋</h1>
+        <p class="text-center" data-lang="intro">Click the sidebar to explore About, Class, or Contact.</p>
+      </div>
     </main>
   </div>
 
