@@ -149,18 +149,20 @@ body {
     }
   
     .vertical-sidebar {
-      flex-direction: row;
-      width: 100%;
-      height: 60px;
-      bottom: 0;
-      top: auto;
-      justify-content: center;
-      padding: 10px;
-    }
-  
-    .sidebar-icon {
-      font-size: 1.2rem;
-      margin: 0 8px;
-    }
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        justify-content: center;
+        flex-wrap: wrap;          /* <-- NEW */
+        padding: 10px;
+        overflow: auto;           /* <-- NEW */
+      }
+    
+      .sidebar-icon {
+        font-size: 1.2rem;
+        margin: 5px 8px;
+      }
   }
   
