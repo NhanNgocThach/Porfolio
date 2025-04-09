@@ -197,4 +197,22 @@ form {
       margin: 0.5rem 0;
     }
   }
+  .sidebar-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
   
+  .sidebar-icons a {
+    font-size: 1.5rem;
+    color: #cad2c5;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-icons a:hover {
+    color: #ffffff;
+  }
+    .sidebar-icons i {
+        margin: 0 5px;
+    }    
