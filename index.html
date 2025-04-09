@@ -5,60 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nhan Ngoc Thach - Portfolio</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font & Icons -->
+  <!-- Bootstrap & Font -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-  <!-- Custom -->
+  <!-- Custom CSS & JS -->
   <link rel="stylesheet" href="style/style.css" />
   <script defer src="scripts/script.js"></script>
 </head>
 <body class="light-mode">
 
-  <div class="main-wrapper d-flex">
-    <!-- SIDEBAR -->
-    <aside class="sidebar text-center" id="sidebar">
-      <div class="profile-section">
-        <img src="./images/avatar.jpg" alt="Avatar" class="avatar mb-3" />
-        <h2 class="username" data-lang="name">Nhan Ngoc Thach</h2>
-        <p class="user-title" data-lang="title">MSBA Student @ Suffolk University</p>
+  <!-- Sidebar -->
+  <div class="vertical-sidebar">
+    <button onclick="toggleMode()" class="sidebar-icon" title="Toggle Theme">
+      <i id="modeIcon" class="fas fa-sun"></i>
+    </button>
+    <button onclick="loadTab('about')" class="sidebar-icon" title="About"><i class="fas fa-user"></i></button>
+    <button onclick="loadTab('resume')" class="sidebar-icon" title="Resume"><i class="fas fa-file-alt"></i></button>
+    <button onclick="loadTab('contact')" class="sidebar-icon" title="Contact"><i class="fas fa-envelope"></i></button>
+    <div class="mt-auto">
+      <button onclick="changeLanguage('en')" class="sidebar-icon" title="English">🇬🇧</button>
+      <button onclick="changeLanguage('vi')" class="sidebar-icon" title="Vietnamese">🇻🇳</button>
+    </div>
+  </div>
+
+  <!-- Main layout -->
+  <div class="main-container">
+    <!-- Profile card -->
+    <section class="profile-card text-center shadow">
+      <img src="images/avatar.jpg" class="avatar" alt="Avatar" />
+      <h2 data-lang="name">Nhan Ngoc Thach</h2>
+      <p class="text-primary fw-semibold" data-lang="title">MSBA Student @ Suffolk University</p>
+      <div class="social-icons">
+        <a href="mailto:0n7n0t8@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://facebook.com/thach.nhanngoc" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://github.com/NhanNgocThach" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/ngoc-thach-nhan-8456a2349/" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
+    </section>
 
-      <nav class="nav flex-column nav-menu">
-        <a class="nav-link" href="#" onclick="loadTab('about')" data-lang="about"><i class="fas fa-user"></i> <span>About</span></a>
-        <a class="nav-link" href="#" onclick="loadTab('class')" data-lang="class"><i class="fas fa-graduation-cap"></i> <span>Class</span></a>
-        <a class="nav-link" href="#" onclick="loadTab('contact')" data-lang="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a>
-      </nav>
-
-      <div class="sidebar-footer mt-auto">
-        <div class="social-icons mb-2">
-          <a href="mailto:0n7n0t8@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://facebook.com/thach.nhanngoc" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://github.com/NhanNgocThach" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/ngoc-thach-nhan-8456a2349/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-
-        <div class="language-toggle mb-2">
-          <button onclick="changeLanguage('en')">🇬🇧</button>
-          <button onclick="changeLanguage('vi')">🇻🇳</button>
-        </div>
-
-        <button id="modeToggle" class="btn btn-outline-light btn-sm" onclick="toggleMode()">
-          <i id="modeIcon" class="fas fa-sun"></i>
-        </button>
-      </div>
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content flex-grow-1 p-4">
-      <div id="main-content">
-        <h1 class="text-center" data-lang="welcome">Welcome 👋</h1>
-        <p class="text-center" data-lang="intro">Click the sidebar to explore About, Class, or Contact.</p>
-      </div>
-    </main>
+    <!-- Dynamic content -->
+    <section class="main-content p-4 shadow" id="main-content">
+      <h1 class="text-center mb-3" data-lang="welcome">Welcome 👋</h1>
+      <p class="text-center" data-lang="intro">Use the menu to switch tabs.</p>
+    </section>
   </div>
 
 </body>
