@@ -1,0 +1,13 @@
+{
+    "name": "portfolio-watermark",
+    "version": "1.0.0",
+    "description": "Auto watermark PDFs on push",
+    "type": "module",
+    "scripts": {
+      "start": "node watermark.js"
+    },
+    "dependencies": {
+      "pdf-lib": "^1.17.1"
+    }
+  }
+  
