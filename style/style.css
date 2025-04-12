@@ -384,3 +384,146 @@ button:hover {
     max-width: 100%;
   }
 }
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-section .section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.about-section .lead {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.about-section ul.list-group {
+  font-size: 0.95rem;
+}
+
+.about-section ul.list-group a {
+  color: #1E90FF;
+  font-weight: 500;
+}
+
+/* My Services cards */
+.about-section .card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.about-section .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.about-section .card h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-section .card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px 15px;
+  }
+
+  .about-section .lead {
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  .about-section .section-title,
+  .about-section h3 {
+    text-align: center;
+  }
+}
+/* Fix for unwanted center-alignment */
+.main-content,
+.about-section,
+.reflection-text {
+  text-align: left;
+}
+/* Responsive for text alignment */
+@media (max-width: 768px) {
+  .main-content,
+  .about-section,
+  .reflection-text {
+    text-align: center;
+  }
+}.class-panel li {
+     
+  overflow: hidden;         /* Ẩn nội dung tràn */
+  text-overflow: ellipsis;  /* Thêm "..." nếu quá dài */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap; /* Cho phép xuống dòng nếu cần, nhưng ưu tiên 1 dòng */
+}
+
+.class-panel li a {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+/* Responsive for class panel list items */
+@media (max-width: 768px) {
+  .class-panel li {
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu cần */
+  }
+}
+.project-title {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+.project-title:hover {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  background-color: #f0f0f0;
+  padding: 4px;
+  border-radius: 4px;
+}
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 32px;
+}.class-panel li {
+  display: flex;
+  flex-wrap: wrap;           /* ✅ Cho phép xuống dòng khi cần */
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.class-panel li span.project-title {
+  white-space: normal;       /* ✅ Cho phép tự động xuống dòng */
+  word-break: break-word;    /* ✅ Cắt từ khi dài */
+  flex: 1;
+}
+
+.class-panel li a {
+  white-space: nowrap;
+  color: #3b82f6;
+  font-weight: 500;
+}

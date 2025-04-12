@@ -7,7 +7,8 @@ function initClassPage() {
   let currentTermIndex = 0;
   let searchMode = false;
   let searchResults = [];
-  let showAllResults = false;
+  let currentSearchPage = 0;
+  const SEARCH_PAGE_SIZE = 4;
 
   function groupByTerm(data) {
     const grouped = {};
@@ -39,25 +40,39 @@ function initClassPage() {
       header.textContent = `Search Results (${searchResults.length})`;
       classList.appendChild(header);
 
-      const maxResults = 4;
-      const resultsToShow = showAllResults ? searchResults : searchResults.slice(0, maxResults);
+      const start = currentSearchPage * SEARCH_PAGE_SIZE;
+      const end = start + SEARCH_PAGE_SIZE;
+      const pageResults = searchResults.slice(start, end);
 
-      resultsToShow.forEach(cls => {
+      pageResults.forEach(cls => {
         const card = createClassCard(cls);
         classList.appendChild(card);
       });
 
-      if (searchResults.length > maxResults && !showAllResults) {
-        const moreBtn = document.createElement("button");
-        moreBtn.textContent = "Show More Results";
-        moreBtn.className = "btn btn-sm btn-outline-primary mt-2";
-        moreBtn.onclick = () => {
-          showAllResults = true;
-          renderTerm();
-        };
-        classList.appendChild(moreBtn);
-      }
+      const nav = document.createElement("div");
+      nav.style.display = "flex";
+      nav.style.justifyContent = "space-between";
+      nav.style.marginTop = "16px";
 
+      const prevBtn = document.createElement("button");
+      prevBtn.textContent = "← Previous";
+      prevBtn.disabled = currentSearchPage === 0;
+      prevBtn.onclick = () => {
+        currentSearchPage--;
+        renderTerm();
+      };
+
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "Next →";
+      nextBtn.disabled = end >= searchResults.length;
+      nextBtn.onclick = () => {
+        currentSearchPage++;
+        renderTerm();
+      };
+
+      nav.appendChild(prevBtn);
+      nav.appendChild(nextBtn);
+      classList.appendChild(nav);
       return;
     }
 
@@ -132,10 +147,9 @@ function initClassPage() {
           p.type === "Presentation" ? "🎤" :
           p.type === "Video" ? "🎥" : "📁";
 
-          content += `<li>${icon} ${p.title} – 
-          <button onclick="downloadFile('${p.link}')" title="This file is for educational use only.">Download</button>
+        content += `<li>${icon} ${p.title} – 
+        <button onclick="downloadFile('${p.link}')" title="This file is for educational use only.">Download</button>
         </li>`;
-        
       });
     } else {
       content += `<li>No projects or essays listed.</li>`;
@@ -154,11 +168,10 @@ function initClassPage() {
     if (keyword === "") {
       searchMode = false;
       currentTermIndex = 0;
-      showAllResults = false;
       renderTerm();
     } else {
       searchMode = true;
-      showAllResults = false;
+      currentSearchPage = 0;
       searchResults = classes.filter(c => c.name.toLowerCase().includes(keyword));
       renderTerm();
     }
@@ -171,6 +184,7 @@ function initClassPage() {
   renderTerm();
   searchInput.addEventListener("input", filterClasses);
 }
+
 function downloadFile(filePath) {
   const a = document.createElement("a");
   a.href = filePath;

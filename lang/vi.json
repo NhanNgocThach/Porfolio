@@ -1,12 +1,15 @@
 {
-    "welcome": "Chào bạn 👋",
-    "intro": "Hãy chọn mục bên trái để xem Giới thiệu, Lớp học, hoặc Liên hệ.",
-    "name": "Nhan Ngọc Thạch",
-    "title": "Học viên MSBA tại Đại học Suffolk",
-    "about": "Giới thiệu",
-    "class": "Lớp học",
-    "contact": "Liên hệ",
-    "about_title": "Về tôi",
-    "about_text": "Xin chào! Tôi là Nhan Ngọc Thạch, học viên chương trình Phân tích Kinh doanh tại Đại học Suffolk. Tôi yêu thích Python, SQL và An ninh mạng."
-  }
-  
+  "welcome": "Chào bạn 👋",
+  "name": "Nhan Ngọc Thạch",
+  "title": "Học viên MSBA tại Đại học Suffolk",
+  "about": "Giới thiệu",
+  "class": "Lớp học",
+  "contact": "Liên hệ",
+  "about_title": "Giới thiệu bản thân",
+  "about_text": "Xin chào! Tôi là Nhan Ngọc Thạch, học viên ngành Phân tích Kinh doanh tại Đại học Suffolk. Tôi yêu thích làm việc với dữ liệu, tạo dashboard, và giải quyết các vấn đề kinh doanh bằng Python, SQL và các công cụ an ninh mạng.",
+  "about_services": "Kỹ năng",
+  "service_1_title": "Phân tích dữ liệu",
+  "service_1_desc": "Phân tích dữ liệu kinh doanh bằng Python, Excel và các công cụ trực quan hóa như Tableau.",
+  "service_2_title": "Truy vấn SQL",
+  "service_2_desc": "Viết truy vấn SQL để khai thác thông tin từ cơ sở dữ liệu phục vụ cho việc ra quyết định."
+}
