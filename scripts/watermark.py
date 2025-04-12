@@ -7,13 +7,12 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
-# Setup paths
-input_dir = Path("raw/watermarked")
-output_dir = Path("raw/files")
-
+# === Thiết lập đường dẫn ===
+input_dir = Path("content/raw/watermarked")
+output_dir = Path("content/raw/files")
 output_dir.mkdir(parents=True, exist_ok=True)
 
-# ---------- PDF WATERMARK ----------
+# === Watermark PDF ===
 def create_pdf_watermark(text):
     packet = BytesIO()
     c = canvas.Canvas(packet, pagesize=letter)
@@ -35,7 +34,7 @@ def watermark_pdf(input_path, output_path, watermark_text):
     with open(output_path, "wb") as f:
         writer.write(f)
 
-# ---------- PPTX WATERMARK ----------
+# === Watermark PPTX ===
 def watermark_pptx(input_path, output_path, watermark_text):
     prs = Presentation(input_path)
     for slide in prs.slides:
@@ -53,18 +52,26 @@ def watermark_pptx(input_path, output_path, watermark_text):
         run.font.color.rgb = RGBColor(200, 200, 200)
     prs.save(output_path)
 
-# ---------- PROCESS FILES ----------
-watermark_text = "NhanNgocThach – For Educational Use Only"
+# === Xử lý file ===
+watermark_text = "Confidential – For Educational Use Only"
 processed_files = []
 
 for file in input_dir.iterdir():
-    if file.suffix.lower() == ".pdf":
-        out = output_dir / file.name
-        watermark_pdf(file, out, watermark_text)
-        processed_files.append(out.name)
-    elif file.suffix.lower() == ".pptx":
-        out = output_dir / file.name
-        watermark_pptx(file, out, watermark_text)
-        processed_files.append(out.name)
+    out = output_dir / file.name
 
-print("✅ Watermarked files:", processed_files)
+    # Bỏ qua nếu đã có
+    if out.exists():
+        print(f"⏩ Bỏ qua: {file.name} (đã có watermark)")
+        continue
+
+    try:
+        if file.suffix.lower() == ".pdf":
+            watermark_pdf(file, out, watermark_text)
+            processed_files.append(out.name)
+        elif file.suffix.lower() == ".pptx":
+            watermark_pptx(file, out, watermark_text)
+            processed_files.append(out.name)
+    except Exception as e:
+        print(f"❌ Lỗi xử lý {file.name}: {e}")
+
+print("✅ Đã watermark:", processed_files)
