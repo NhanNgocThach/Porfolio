@@ -3,35 +3,33 @@ name: Watermark PDFs and PPTX on Push
 on:
   push:
     paths:
-      - 'content/raw/watermarked/**.pdf'
-      - 'content/raw/watermarked/**.pptx'
+      - 'content/raw/watermarked/**/*.pdf'
+      - 'content/raw/watermarked/**/*.pptx'
 
 jobs:
   watermark:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 📥 Checkout Repo
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: 🐍 Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: 📦 Install Python Packages
-      run: pip install PyPDF2 reportlab python-pptx
+      - name: Install Python dependencies
+        run: |
+          pip install PyPDF2 reportlab python-pptx
 
-    - name: 🖋️ Run Watermark Script
-      run: python scripts/watermark.py
+      - name: Run Watermark Script
+        run: python scripts/watermark.py
 
-    - name: ✅ Commit Watermarked Files
-      run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-        git add content/raw/files/
-        if git diff --cached --quiet; then
-          echo "✅ No new watermarked files to commit."
-        else
-          git commit -m "🤖 Auto-watermarked new file(s)"
+      - name: Commit Watermarked Files
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add content/raw/files/
+          git commit -m "🤖 Auto-watermarked new file(s)" || echo "No changes to commit"
           git push
