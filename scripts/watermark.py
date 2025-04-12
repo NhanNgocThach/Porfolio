@@ -53,7 +53,7 @@ def watermark_pptx(input_path, output_path, watermark_text):
     prs.save(output_path)
 
 # === Xử lý file ===
-watermark_text = "Confidential – For Educational Use Only"
+watermark_text = "NhanNgocThach – For Educational Use Only"
 processed_files = []
 
 for file in input_dir.iterdir():
