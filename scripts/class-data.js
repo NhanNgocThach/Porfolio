@@ -21,7 +21,32 @@ const classes = [
       term: "Fall 2024",
       start: "Sep 2024",
       end: "Dec 2024",
-      projects: []
+      projects: [
+        {
+          type: "Essay",
+          title: "Module 1 – Culture Advice Letter",
+          link: "./raw/files/NhanNgocThach_Module-1.pdf",
+          download: true
+        },
+        {
+          type: "Presentation",
+          title: "Module 2 – Christmas Presentation",
+          link: "./raw/files/Module-2.pptx",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Module 3 – Patriot Letter",
+          link: "./raw/files/Module 3.pdf",
+          download: true
+        },
+        {
+          type: "Presentation",
+          title: "Final – Statue of Liberty",
+          link: "./raw/files/Iconic of the United States.pptx",
+          download: true
+        }
+      ]
     },
     {
       id: "AE032",
@@ -29,7 +54,44 @@ const classes = [
       term: "Fall 2024",
       start: "Sep 2024",
       end: "Dec 2024",
-      projects: []
+      projects: [
+        {
+          type: "Essay",
+          title: "Analysis Essay – Thriller",
+          link: "./raw/files/Analysis Essay.pdf",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Bird Video Reflection",
+          link: "./raw/files/Bird.pdf",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Summary – Suffolk University",
+          link: "./raw/files/NhanNgocThach_Summary-SU-1.pdf",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Opinion Essay – The Trip (2)",
+          link: "./raw/files/NhanNgocThach(T)_The-Trip-2.pdf",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Opinion Essay – The Trip (3)",
+          link: "./raw/files/NhanNgocThach(T)_The-Trip-3.pdf",
+          download: true
+        },
+        {
+          type: "Essay",
+          title: "Field Trip Reflection – Quincy Market",
+          link: "./raw/files/Reflection.pdf",
+          download: true
+        }
+      ]
     },
     {
       id: "AE041",

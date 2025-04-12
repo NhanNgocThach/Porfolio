@@ -280,3 +280,47 @@ body {
   color: #7f8c8d;
   margin-top: 4px;
 }
+.reflection-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+}
+
+.reflection-video {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  align-self: center;
+}
+
+.reflection-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Dark mode fix */
+body.dark-mode .reflection-text {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+body.dark-mode .reflection-video {
+  box-shadow: 0 0 8px rgba(255,255,255,0.1);
+}
+/* Responsive for reflection video */
+@media (max-width: 768px) {
+  .reflection-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
