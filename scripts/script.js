@@ -1,13 +1,27 @@
 // ===== Load tab content dynamically =====
 function loadTab(tabName) {
-    fetch(`content/${tabName}.html`)
-      .then(res => res.text())
-      .then(html => {
-        const content = document.getElementById('main-content');
-        content.innerHTML = html;
-        updateLanguage(); // re-apply language keys
-      });
-  }
+  fetch(`content/${tabName}.html`)
+    .then(res => res.text())
+    .then(html => {
+      const content = document.getElementById('main-content');
+      content.innerHTML = html;
+      updateLanguage();
+
+      if (tabName === "class") {
+        const script1 = document.createElement('script');
+        script1.src = 'scripts/class-data.js';
+        document.body.appendChild(script1);
+
+        const script2 = document.createElement('script');
+        script2.src = 'scripts/class-page.js';
+        script2.onload = () => {
+          initClassPage(); // ✅ Gọi hàm khởi tạo khi script đã load
+        };
+        document.body.appendChild(script2);
+      }
+    });
+}
+
   
   // ===== Toggle sidebar for mobile =====
   function toggleSidebar() {

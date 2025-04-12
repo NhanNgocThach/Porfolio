@@ -1,7 +1,7 @@
 <div class="class-wrapper">
     <!-- BẢNG TRÁI: Danh sách lớp -->
     <div class="class-panel left-panel">
-      <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search class..." onkeyup="filterClasses()">
+      <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search class...">
       <div id="classList"></div>
     </div>
   
@@ -13,60 +13,16 @@
     </div>
   </div>
   
-  <!-- Dữ liệu lớp học -->
-  <script src="../scripts/class-data.js"></script>
+  <!-- ✅ Nạp dữ liệu lớp học -->
+  <script src="./scripts/class-data.js"></script>
   
-  <!-- Logic -->
+  <!-- ✅ Nạp xử lý class-page mới -->
+  <script src="./scripts/class-page.js"></script>
+  
+  <!-- ✅ Gọi hàm khởi động -->
   <script>
-    const classList = document.getElementById('classList');
-    const classDetails = document.getElementById('classDetails');
-  
-    function renderClassCards(data) {
-      classList.innerHTML = '';
-      data.forEach(cls => {
-        const card = document.createElement('div');
-        card.className = 'class-item-card';
-        card.innerHTML = `
-          <div onclick="showDetails('${cls.id}')">
-            <h5>${cls.name}</h5>
-            <p class="class-term">${cls.term}</p>
-          </div>
-        `;
-        classList.appendChild(card);
-      });
-    }
-  
-    function showDetails(id) {
-      const cls = classes.find(c => c.id === id);
-      if (!cls) return;
-  
-      classDetails.classList.remove('show');
-      void classDetails.offsetWidth;
-  
-      let content = `<h4>${cls.name}</h4><ul>`;
-      cls.projects.forEach(p => {
-        const icon = p.type === 'Essay' ? '📄' :
-                     p.type === 'Presentation' ? '🎤' :
-                     p.type === 'Video' ? '🎥' : '📁';
-        content += `<li>${icon} ${p.title} – <a href="${p.link}" ${p.download ? 'download' : 'target="_blank"'}>Download</a></li>`;
-      });
-      content += '</ul>';
-      classDetails.innerHTML = content;
-  
-      classDetails.classList.add('fade-slide');
-      setTimeout(() => {
-        classDetails.classList.add('show');
-      }, 10);
-    }
-  
-    function filterClasses() {
-      const keyword = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = classes.filter(c => c.name.toLowerCase().includes(keyword));
-      renderClassCards(filtered);
-    }
-  
     document.addEventListener('DOMContentLoaded', () => {
-      renderClassCards(classes);
+      initClassPage();
     });
   </script>
   
