@@ -1,9 +1,10 @@
-name: Watermark PDFs on Push
+name: Watermark PDFs and PPTX on Push
 
 on:
   push:
     paths:
       - 'content/raw/watermarked/**.pdf'
+      - 'content/raw/watermarked/**.pptx'
 
 jobs:
   watermark:
@@ -19,7 +20,7 @@ jobs:
         python-version: '3.10'
 
     - name: Install Python packages
-      run: pip install PyPDF2 reportlab
+      run: pip install PyPDF2 reportlab python-pptx
 
     - name: Run Watermark Script
       run: python scripts/watermark.py
@@ -29,5 +30,5 @@ jobs:
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add content/raw/files/
-        git commit -m "🤖 Auto-watermarked new PDF(s)"
+        git commit -m "🤖 Auto-watermarked new file(s)"
         git push
