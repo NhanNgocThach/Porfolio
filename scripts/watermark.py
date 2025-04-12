@@ -8,8 +8,8 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
 # === Thiết lập đường dẫn ===
-input_dir = Path("content/raw/watermarked")
-output_dir = Path("content/raw/files")
+input_dir = Path("raw/watermarked")
+output_dir = Path("raw/files")
 output_dir.mkdir(parents=True, exist_ok=True)
 
 # === Watermark PDF ===
