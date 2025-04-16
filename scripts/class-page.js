@@ -147,15 +147,14 @@ function initClassPage() {
           p.type === "Presentation" ? "🖥️" :
           p.type === "Video" ? "🎥" : "📁";
 
-          const downloadIcon = "💾"; // or use ⬇️ or 🠗
           content += `
-            <li>
-              ${icon} ${p.title}
-              <button onclick="downloadFile('${p.link}')" title="Download this file" style="margin-left: 10px; font-size: 0.9rem;">
-                ${downloadIcon}
-              </button>
-            </li>
-          `;;
+  <li style="display: flex; align-items: center; gap: 8px;">
+    <span>${icon} ${p.title}</span>
+    <button onclick="downloadFile('${p.link}')" title="Download" style="background: none; border: none; font-size: 1rem; cursor: pointer;">
+      💾
+    </button>
+  </li>
+`;
       });
     } else {
       content += `<li>No projects or essays listed.</li>`;
