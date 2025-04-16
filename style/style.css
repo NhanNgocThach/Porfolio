@@ -527,3 +527,21 @@ button:hover {
   color: #3b82f6;
   font-weight: 500;
 }
+button[title="Download this file"] {
+  background: none;
+  border: none;
+  color: #1E90FF;
+  cursor: pointer;
+  padding: 0 5px;
+  font-size: 1rem;
+}
+
+button[title="Download this file"]:hover {
+  color: #0077cc;
+}
+/* Responsive for download button */
+@media (max-width: 768px) {
+  button[title="Download this file"] {
+    font-size: 0.9rem;
+  }
+}

@@ -100,7 +100,7 @@ function initClassPage() {
     nav.style.marginTop = "20px";
 
     const prevBtn = document.createElement("button");
-    prevBtn.textContent = "← Previous Term";
+    prevBtn.textContent = "← Next Term";
     prevBtn.disabled = currentTermIndex === 0;
     prevBtn.onclick = () => {
       currentTermIndex--;
@@ -108,7 +108,7 @@ function initClassPage() {
     };
 
     const nextBtn = document.createElement("button");
-    nextBtn.textContent = "Next Term →";
+    nextBtn.textContent = "Previous Term →";
     nextBtn.disabled = currentTermIndex === groupedTerms.length - 1;
     nextBtn.onclick = () => {
       currentTermIndex++;
@@ -144,12 +144,18 @@ function initClassPage() {
       cls.projects.forEach(p => {
         const icon =
           p.type === "Essay" ? "📄" :
-          p.type === "Presentation" ? "🎤" :
+          p.type === "Presentation" ? "🖥️" :
           p.type === "Video" ? "🎥" : "📁";
 
-        content += `<li>${icon} ${p.title} – 
-        <button onclick="downloadFile('${p.link}')" title="This file is for educational use only.">Download</button>
-        </li>`;
+          const downloadIcon = "💾"; // or use ⬇️ or 🠗
+          content += `
+            <li>
+              ${icon} ${p.title}
+              <button onclick="downloadFile('${p.link}')" title="Download this file" style="margin-left: 10px; font-size: 0.9rem;">
+                ${downloadIcon}
+              </button>
+            </li>
+          `;;
       });
     } else {
       content += `<li>No projects or essays listed.</li>`;
