@@ -148,13 +148,17 @@ function initClassPage() {
           p.type === "Video" ? "🎥" : "📁";
 
           content += `
-  <li style="display: flex; align-items: center; gap: 8px;">
-    <span>${icon} ${p.title}</span>
-    <button onclick="downloadFile('${p.link}')" title="Download" style="background: none; border: none; font-size: 1rem; cursor: pointer;">
-      💾
-    </button>
+  <li>
+    <span style="white-space: nowrap;">
+      ${icon} ${p.title}
+      <button onclick="downloadFile('${p.link}')" title="Download" 
+        style="background: none; border: none; font-size: 1rem; cursor: pointer; margin-left: 6px;">
+        💾
+      </button>
+    </span>
   </li>
 `;
+
       });
     } else {
       content += `<li>No projects or essays listed.</li>`;
