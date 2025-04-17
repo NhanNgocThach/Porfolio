@@ -113,6 +113,12 @@ const classes = [
         title: "Cause-Effect Essay – Water Pollution",
         link: "./raw/files/Cause-Effect-Essay_Nhan_Ngoc_Thach.pdf",
         download: true
+      },
+      {
+        type: "Essay",
+        title: "Persuasive essay- Can Failure Lead to Success?",
+        link: "./raw/files/Persuasive essay.pdf",
+        download: true
       }
     ]
   },
@@ -160,6 +166,12 @@ const classes = [
         type: "Essay",
         title: "Comparative Response – The Most Dangerous Game",
         link: "./raw/files/The  Most Dangerous Game.pdf",
+        download: true
+      },
+      {
+        type: "Presentation",
+        title: "Presentation – The Relation between Katniss and Buttercup",
+        link: "./raw/files/Katniss_and_Buttercup_Presentation.pptx",
         download: true
       }
     ]
