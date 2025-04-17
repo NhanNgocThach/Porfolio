@@ -148,16 +148,19 @@ function initClassPage() {
           p.type === "Video" ? "🎥" : "📁";
 
           content += `
-  <li>
-    <span style="white-space: nowrap;">
-      ${icon} ${p.title}
-      <button onclick="downloadFile('${p.link}')" title="Download" 
-        style="background: none; border: none; font-size: 1rem; cursor: pointer; margin-left: 6px;">
-        💾
-      </button>
+  <li style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 4px 0;text-align: left;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span>${icon}  ${p.title}    
+    <button onclick="downloadFile('${p.link}')" title="Download"
+      style="background: none; border: none; font-size: 1.1rem; cursor: pointer;">
+      💾
+    </button>
     </span>
+    </div>
   </li>
 `;
+
+
 
       });
     } else {

@@ -517,7 +517,7 @@ button:hover {
 }
 
 .class-panel li span.project-title {
-  white-space: normal;       /* ✅ Cho phép tự động xuống dòng */
+  white-space: none;       /* ✅ Cho phép tự động xuống dòng */
   word-break: break-word;    /* ✅ Cắt từ khi dài */
   flex: 1;
 }
