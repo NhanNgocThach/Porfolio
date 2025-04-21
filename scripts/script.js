@@ -15,62 +15,58 @@ function loadTab(tabName) {
         const script2 = document.createElement('script');
         script2.src = 'scripts/class-page.js';
         script2.onload = () => {
-          initClassPage(); // ✅ Gọi hàm khởi tạo khi script đã load
+          initClassPage(); // ✅ Gọi khi file đã load xong
         };
         document.body.appendChild(script2);
       }
+    })
+    .catch(err => {
+      console.error("Error loading tab:", err);
     });
 }
 
-  
-  // ===== Toggle sidebar for mobile =====
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('show');
+// ===== Toggle sidebar for mobile =====
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('show');
+}
+
+// ===== Toggle dark/light mode with icon change =====
+function toggleMode() {
+  const body = document.body;
+  const icon = document.getElementById("modeIcon");
+
+  body.classList.toggle("dark-mode");
+
+  if (icon) {
+    icon.classList.toggle("fa-sun", !body.classList.contains("dark-mode"));
+    icon.classList.toggle("fa-moon", body.classList.contains("dark-mode"));
   }
-  
-  // ===== Toggle dark/light mode with icon change =====
-  function toggleMode() {
-    const body = document.body;
-    const icon = document.getElementById("modeIcon");
-  
-    body.classList.toggle("dark-mode");
-  
-    if (icon) {
-      if (body.classList.contains("dark-mode")) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      } else {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      }
-    }
-  }
-  
-  // ===== Language control =====
-  let currentLanguage = 'en';
-  
-  function changeLanguage(lang) {
-    currentLanguage = lang;
-    updateLanguage();
-  }
-  
-  function updateLanguage() {
-    fetch(`lang/${currentLanguage}.json`)
-      .then(res => res.json())
-      .then(data => {
-        const elements = document.querySelectorAll('[data-lang]');
-        elements.forEach(el => {
-          const key = el.getAttribute('data-lang');
-          if (data[key]) {
-            el.innerText = data[key];
-          }
-        });
+}
+
+// ===== Language control =====
+let currentLanguage = 'en';
+
+function changeLanguage(lang) {
+  currentLanguage = lang;
+  updateLanguage();
+}
+
+function updateLanguage() {
+  fetch(`lang/${currentLanguage}.json`)
+    .then(res => res.json())
+    .then(data => {
+      const elements = document.querySelectorAll('[data-lang]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-lang');
+        if (data[key]) {
+          el.innerText = data[key];
+        }
       });
-  }
-  
-  // ===== Initialize =====
-  document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage('en'); // Default language
-  });
-  
+    });
+}
+
+// ===== Initialize =====
+document.addEventListener('DOMContentLoaded', () => {
+  changeLanguage('en'); // Default language
+});

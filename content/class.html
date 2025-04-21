@@ -1,28 +1,15 @@
+<!-- ✅ content/class.html -->
 <div class="class-wrapper">
-    <!-- BẢNG TRÁI: Danh sách lớp -->
-    <div class="class-panel left-panel">
-      <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search class...">
-      <div id="classList"></div>
-    </div>
-  
-    <!-- BẢNG PHẢI: Chi tiết lớp -->
-    <div class="class-panel right-panel">
-      <div id="classDetails" class="card p-4 shadow-sm fade-slide show">
-        <h5>Select a class to view details</h5>
-      </div>
+  <!-- Bảng trái: Danh sách lớp -->
+  <div class="class-panel left-panel">
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search class..." oninput="filterClasses()">
+    <div id="classList"></div>
+  </div>
+
+  <!-- Bảng phải: Chi tiết lớp -->
+  <div class="class-panel right-panel">
+    <div id="classDetails" class="fade-slide show">
+      <h5>Select a class to view details</h5>
     </div>
   </div>
-  
-  <!-- ✅ Nạp dữ liệu lớp học -->
-  <script src="./scripts/class-data.js"></script>
-  
-  <!-- ✅ Nạp xử lý class-page mới -->
-  <script src="./scripts/class-page.js"></script>
-  
-  <!-- ✅ Gọi hàm khởi động -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      initClassPage();
-    });
-  </script>
-  
+</div>

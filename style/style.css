@@ -545,3 +545,46 @@ button[title="Download this file"]:hover {
     font-size: 0.9rem;
   }
 }
+.pagination-nav {
+  display: flex;
+  justify-content: space-between; /* 👈 đẩy 2 nút ra 2 bên */
+  white-space: nowrap; /* 👈 không cho xuống dòng */
+  margin-top: 24px;
+  padding: 0 32px; /* 👈 thêm khoảng cách hai bên */
+}
+
+.pagination-nav button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #3b82f6;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: color 0.3s ease;
+}
+
+.pagination-nav button:hover {
+  color: #1E90FF;
+}
+.pagination-nav button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.class-panel ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ Căn trái */
+  padding-left: 0;
+  list-style: none;
+}
+
+.class-panel ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;  ;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
